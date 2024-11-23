@@ -34,16 +34,19 @@ description = "Run applications as another user"
 version = 0.1
 
 def sh(command):
-    result = subprocess.run(command,
-                            stdout=subprocess.PIPE,
-                            text=True)
+    result = subprocess.run(
+      command,
+      stdout=subprocess.PIPE,
+      text=True)
     return result
 
 def no_access_msg():
-    print("WARNING: you are trying to run an user script")
+    print(
+      "WARNING: you are trying to run an user script")
 
 def not_found_msg(obj_type, user):
-    print(f"ERROR: {obj_type} '{user}' not found.")
+    print(
+      f"ERROR: {obj_type} '{user}' not found.")
 
 def resolve_user(user, uid=False):
     getuser = getpwnam
