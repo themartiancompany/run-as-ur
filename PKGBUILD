@@ -81,6 +81,7 @@ pkgname=(
   "${pkgbase}"
 )
 pkgver=0.1
+_commit="7072576d30c77d93439a60e9f7cd4bec5ef23dd3"
 pkgrel=1
 _pkgdesc=(
   "Run an application as another user."
@@ -172,16 +173,14 @@ validpgpkeys=(
   '12D8E3D7888F741E89F86EE0FEC8567A644F1D16'
 )
 
-
-
-source=(
-  "run-as.py"
-  "enable-graphical-services.sh"
-)
-sha256sums=(
-  "fdd3ad400570f7e404c5c8482d94c2dd3273df3c1266594ac7c2a7967dd115ac"
-  "521921a95ddcc645de77ba2d6714a9d34b01d37633f93a8caee8d42fad9dedcc"
-)
+# source=(
+#   "run-as.py"
+#   "enable-graphical-services.sh"
+# )
+# sha256sums=(
+#   "fdd3ad400570f7e404c5c8482d94c2dd3273df3c1266594ac7c2a7967dd115ac"
+#   "521921a95ddcc645de77ba2d6714a9d34b01d37633f93a8caee8d42fad9dedcc"
+# )
 
 package() {
   local \
