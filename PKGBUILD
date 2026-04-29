@@ -91,7 +91,10 @@ arch=(
 _http="https://${_git_service}.com"
 url="${_http}/${_ns}/${_pkg}"
 depends=()
-if [[ "" == "GNU/Linux" ]]; then
+makedepends=(
+  "coreutils"
+)
+if [[ "${_os}" == "GNU/Linux" ]]; then
   depends+=(
     "systemd"
     "${_py}"
@@ -181,13 +184,14 @@ sha256sums=(
 )
 
 package() {
-  install \
-    -Dm755 \
-    "${srcdir}/run-as.py" \
-    "${pkgdir}/usr/bin/run-as"
-  install \
-    -Dm755 \
-    "${srcdir}/enable-graphical-services.sh" \
-    "${pkgdir}/usr/bin/enable-graphical-services"
+  local \
+    _make_opts=()
+  _make_opts+=(
+    DESTDIR="${pkgdir}"
+  )
+  cd \
+    "${_tarname}"
+  make \
+    "${_make_opts[@]}" \
+    install
 }
-
